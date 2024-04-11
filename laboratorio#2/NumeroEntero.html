@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma de múltiplos de 3 o 5</title>
+</head>
+<body>
+
+    <script>
+        function sumaMultiplosDeTresOCinco(numero) {
+            // Validar si el número es un entero positivo
+            if (numero <= 0 || !Number.isInteger(numero)) {
+                return "Por favor, ingresa un número entero positivo.";
+            }
+
+            // Inicializar la suma
+            let suma = 0;
+
+            // Iterar a través de todos los números menores que el número dado
+            for (let i = 1; i < numero; i++) {
+                // Si el número es múltiplo de 3 o 5, agregarlo a la suma
+                if (i % 3 === 0 || i % 5 === 0) {
+                    suma += i;
+                }
+            }
+
+            // Devolver la suma
+            return suma;
+        }
+
+        // Solicitar al usuario ingresar un número
+        let numeroUsuario = prompt("Ingrese un número entero positivo:");
+
+        // Convertir el input del usuario a un número entero
+        numeroUsuario = parseInt(numeroUsuario);
+
+        // Calcular la suma de los múltiplos de 3 o 5 utilizando la función y mostrar el resultado
+        let resultado = sumaMultiplosDeTresOCinco(numeroUsuario);
+        console.log("La suma de los múltiplos de 3 o 5 menores que", numeroUsuario, "es:", resultado);
+        document.write("<p>La suma de los múltiplos de 3 o 5 menores que " + numeroUsuario + " es: " + resultado + "</p>");
+    </script>
+
+</body>
+</html>
