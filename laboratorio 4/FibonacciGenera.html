@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Laboratorio #4 - Problemas de aplicación usando JS y HTML</title>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+/* Estilos adicionales para mostrar las tarjetas en línea */
+#fibonacciCardsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+.w3-card-4 {
+    width: 50px; /* Ancho de la tarjeta */
+  margin: 20px auto; /* Margen superior e inferior auto y 20px en los lados */
+}
+/* Estilos para los números de respuesta */
+.response-numbers {
+  text-align: center; /* Centrar los números */
+}
+
+
+/* Estilos para el contenedor de la tarjeta */
+.card-container {
+  position: relative; /* Posicionamiento relativo para el botón */
+  width: 1300px; /* Ancho de la tarjeta */
+  margin: 20px auto; /* Margen superior e inferior auto y 20px en los lados */
+  padding: 100px; /* Espacio interno */
+  background-color: #f2f2f2; /* Fondo gris claro */
+}
+
+/* Estilos para el título h2 dentro de la tarjeta */
+.card-container h2 {
+  text-align: center; /* Centrado */
+  font-weight: bold; /* Negrita */
+}
+
+
+/* Estilos para el botón */
+#fibonacciForm button {
+  position: absolute; /* Posicionamiento absoluto */
+  bottom: 20px; /* 10px desde la parte inferior */
+  right: 40px; /* 10px desde la parte derecha */
+  background-color: crimson; /* Color carmesí */
+  color: white; /* Texto blanco */
+  padding: 5px 60px; /* Ajuste del tamaño del botón */
+}
+</style>
+</head>
+<body>
+
+<div class="w3-container">
+  <div class="card-container w3-card-4"> <!-- Contenedor de la tarjeta -->
+    <h2>Secuencia Fibonacci</h2> <!-- Título dentro de la tarjeta -->
+    <form id="fibonacciForm">
+      <label for="numberInput">Cantidad de elementos:</label>
+      <input type="number" id="numberInput" name="numberInput" required>
+      <br> <!-- Salto de línea -->
+      <button type="submit">Calcular</button> <!-- Botón debajo del cuadro de texto -->
+    </form>
+  </div>
+</div>
+
+<div id="fibonacciCardsContainer" class="w3-container">
+  <!-- Aquí se generarán las tarjetas con los números de Fibonacci -->
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
