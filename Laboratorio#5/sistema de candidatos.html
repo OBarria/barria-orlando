@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Laboratorio #5 Sistema de Candidatos</title>
+    <link rel="stylesheet" href="estilos.css"> <!-- Archivo CSS para estilos -->
+</head>
+<body>
+    <div class="container">
+        <h1>Sistema de Candidatos</h1>
+        <div id="controls">
+            <input type="text" id="candidate-name" placeholder="Nombre del candidato">
+            <input type="color" id="candidate-color">
+            <button onclick="addCandidate()">Agregar Candidato</button>
+        </div>
+        <div class="candidates-and-chart">
+            <div id="candidates-container"></div> <!-- Aquí se mostrarán los candidatos -->
+            <div id="pie-chart-container">
+                <canvas id="pie-chart" width="400" height="400"></canvas> <!-- Aquí se mostrará el gráfico de pastel -->
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script> <!-- Archivo JavaScript -->
+</body>
+</html>
