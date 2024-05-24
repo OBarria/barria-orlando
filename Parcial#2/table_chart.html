@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <script>
+        // Verificar si el usuario tiene una sesión activa
+        if (!localStorage.getItem('username')) {
+            // Si no hay una sesión activa, redireccionar al usuario a la página de inicio de sesión
+            window.location.href = "login.html";
+        }
+
+        // Función para cargar los datos del perfil del usuario
+        function loadUserProfile() {
+            const name = localStorage.getItem('name');
+            document.getElementById('profileName').value = name;
+        }
+
+        // Función para cerrar sesión
+        function logout() {
+            localStorage.removeItem('username'); // Eliminar solo la sesión activa
+            window.location.href = "login.html"; // Redireccionar al usuario a la página de inicio de sesión
+        }
+
+        // Función para cargar los datos de la tabla
+        function loadTableData() {
+            // Aquí deberías cargar los datos de la tabla desde algún origen (p. ej., una base de datos)
+            // En este ejemplo, simplemente generamos datos de prueba
+            const tableData = [
+                { fecha: '2024-05-01', concepto: 'Ingreso', tipo: 'Entrada', monto: 1000 },
+                { fecha: '2024-05-05', concepto: 'Compra', tipo: 'Salida', monto: 500 },
+                { fecha: '2024-05-10', concepto: 'Pago de factura', tipo: 'Salida', monto: 200 },
+                // Agrega más datos según sea necesario
+            ];
+
+            const tableBody = document.querySelector('#dataTable tbody');
+            tableBody.innerHTML = ''; // Limpiar tabla antes de agregar nuevos datos
+
+            tableData.forEach(entry => {
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${entry.fecha}</td>
+                    <td>${entry.concepto}</td>
+                    <td>${entry.tipo}</td>
+                    <td>${entry.monto}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Función para cargar y mostrar la gráfica
+        function loadChart() {
+            // Aquí deberías cargar los datos de la gráfica desde algún origen (p. ej., una base de datos)
+            // En este ejemplo, simplemente usamos los mismos datos de prueba que en la tabla
+            const chartData = {
+                labels: ['Entradas', 'Salidas'],
+                datasets: [{
+                    label: 'Entradas vs Salidas',
+                    backgroundColor: ['rgba(75, 192, 192, 0.2)', 'rgba(255, 99, 132, 0.2)'],
+                    borderColor: ['rgba(75, 192, 192, 1)', 'rgba(255, 99, 132, 1)'],
+                    borderWidth: 1,
+                    data: [1500, 700] // Deberías reemplazar esto con los datos reales del usuario
+                }]
+            };
+
+            // Configuración del gráfico
+            const config = {
+                type: 'bar',
+                data: chartData,
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            };
+
+            // Crear el gráfico
+            var myChart = new Chart(
+                document.getElementById('myChart'),
+                config
+            );
+        }
+        
+        // Cargar los datos del usuario al cargar la página
+        window.onload = function() {
+            loadUserProfile();
+            loadTableData();
+            loadChart();
+        };
+    </script>
+
+    <div class="card">
+        <h2>Bienvenido, <span id="loggedInUsername">[Nombre de Usuario]</span>!</h2>
+
+        <div id="profilePage">
+            <h3>Perfil</h3>
+            <label for="profileName">Nombre:</label>
+            <input type="text" id="profileName" placeholder="Nombre" readonly>
+            <label for="profilePassword">Contraseña:</label>
+            <input type="password" id="profilePassword" placeholder="Nueva Contraseña">
+            <button onclick="updateProfile()">Guardar Cambios</button>
+            <button onclick="logout()">Cerrar Sesión</button>
+        </div>
+
+        <div id="tableContainer">
+            <h3>Lista de entradas y salidas de dinero</h3>
+            <table id="dataTable">
+                <thead>
+                    <tr>
+                        <th>Fecha</th>
+                        <th>Concepto</th>
+                        <th>Tipo</th>
+                        <th>Monto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Aquí se cargarán los datos de entradas y salidas de dinero -->
+                </tbody>
+            </table>
+        </div>
+        <div id="chartContainer">
+            <h3>Comparativa de entradas y salidas de dinero</h3>
+            <canvas id="myChart" width="400" height="400"></canvas>
+
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+    <script src="Chart.js"></script>
+</body>
+</html>
