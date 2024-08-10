@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lección Interactiva - Paso 1: Salvo</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .section {
+            margin-bottom: 40px;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .feedback {
+            margin-top: 10px;
+            color: green;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Lección 1: Salvo</h1>
+
+    <div class="section">
+        <h2>La Vida Pasada</h2>
+        
+        <div class="question">
+            <p>1. Según Efesios 2:1, ¿cuál era nuestra condición antes de que Cristo nos diera la vida eterna?</p>
+            <input type="text" id="q1" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback1" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>2. Según Romanos 3:23, ¿ha pecado toda persona?</p>
+            <label><input type="radio" name="q2" value="Sí"> Sí</label>
+            <label><input type="radio" name="q2" value="No"> No</label>
+            <div id="feedback2" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>3. La Biblia dice que estábamos condenados. ¿Por qué? (Juan 3:18)</p>
+            <input type="text" id="q3" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback3" class="feedback"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>La Obra de Dios</h2>
+
+        <div class="question">
+            <p>4. Según Efesios 2:4-5, ¿cómo se describe a Dios?</p>
+            <input type="text" id="q4" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback4" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>5. Según este pasaje, ¿qué ha hecho Dios por nosotros?</p>
+            <input type="text" id="q5" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback5" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>6. Según Romanos 5:8, ¿en qué forma nos muestra Dios su amor?</p>
+            <input type="text" id="q6" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback6" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>7. Lea Efesios 2:8-9. Dios decidió que la salvación no es por obras (v.9). ¿En cuáles obras confía la gente, creyendo que con ellas serán salvos?</p>
+            <input type="text" id="q7" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback7" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>8. Somos salvos por _____________ por medio de la _____________.</p>
+            <input type="text" id="q8" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback8" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>9. ¿En quién debemos tener fe para ser hijos de Dios? (Gálatas 3:26)</p>
+            <input type="text" id="q9" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback9" class="feedback"></div>
+        </div>
+    </div>
+
+    <div class="section">
+        <h2>La Nueva Vida</h2>
+
+        <div class="question">
+            <p>10. Diga en sus propias palabras qué es tener fe en Cristo.</p>
+            <input type="text" id="q10" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback10" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>11. ¿Con qué propósito vino Cristo? (Juan 10:10)</p>
+            <input type="text" id="q11" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback11" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>12. ¿Qué ofrece Dios a quien recibe a Cristo? (Juan 1:12)</p>
+            <input type="text" id="q12" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback12" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>13. Según Juan 5:24, ¿qué sucede con la persona que recibe a Cristo?</p>
+            <input type="text" id="q13" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback13" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>14. Según Efesios 2:10, ¿para qué somos creados en Cristo?</p>
+            <input type="text" id="q14" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback14" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>15. Lea 2 Corintios 5:17. Estar "en Cristo" significa haberlo aceptado como Salvador. Entonces, si alguno está en Cristo, ¿en qué se convierte?</p>
+            <input type="text" id="q15" placeholder="Escribe tu respuesta aquí">
+            <div id="feedback15" class="feedback"></div>
+        </div>
+
+        <div class="question">
+            <p>16. La segunda parte del vers. 17 habla de cambios en la vida. Dé algunos ejemplos de lo viejo y lo nuevo:</p>
+            <textarea id="q16" placeholder="Escribe tu respuesta aquí"></textarea>
+            <div id="feedback16" class="feedback"></div>
+        </div>
+    </div>
+
+    <button onclick="checkAnswers()">Enviar Respuestas</button>
+
+    <script>
+        function checkAnswers() {
+            // Respuestas correctas
+            const correctAnswers = {
+                q1: "Muertos en delitos y pecados",
+                q2: "Sí",
+                q3: "Porque no han creído en el nombre del unigénito Hijo de Dios",
+                q4: "Rico en misericordia",
+                q5: "Nos dio vida juntamente con Cristo",
+                q6: "Cristo murió por nosotros",
+                q7: "Obras humanas, religiosidad, buenas acciones",
+                q8: "gracia, fe",
+                q9: "Jesucristo",
+                q11: "Dar vida en abundancia",
+                q12: "El derecho de ser hijos de Dios",
+                q13: "No viene a condenación, ha pasado de muerte a vida",
+                q14: "Para buenas obras",
+                q15: "Nueva criatura"
+            };
+
+            // Obtener respuestas del usuario
+            const userAnswers = {
+                q1: document.getElementById("q1").value.trim(),
+                q2: document.querySelector('input[name="q2"]:checked') ? document.querySelector('input[name="q2"]:checked').value : "",
+                q3: document.getElementById("q3").value.trim(),
+                q4: document.getElementById("q4").value.trim(),
+                q5: document.getElementById("q5").value.trim(),
+                q6: document.getElementById("q6").value.trim(),
+                q7: document.getElementById("q7").value.trim(),
+                q8: document.getElementById("q8").value.trim(),
+                q9: document.getElementById("q9").value.trim(),
+                q10: document.getElementById("q10").value.trim(),
+                q11: document.getElementById("q11").value.trim(),
+                q12: document.getElementById("q12").value.trim(),
+                q13: document.getElementById("q13").value.trim(),
+                q14: document.getElementById("q14").value.trim(),
+                q15: document.getElementById("q15").value.trim(),
+                q16: document.getElementById("q16").value.trim()
+            };
+
+            // Verificar respuestas y mostrar retroalimentación
+            for (let i = 1; i <= 16; i++) {
+                const questionId = "q" + i;
+                const feedbackId = "feedback" + i;
+
+                if (correctAnswers[questionId]) {  // Si la pregunta tiene respuesta correcta predefinida
+                    if (userAnswers[questionId].toLowerCase() === correctAnswers[questionId].toLowerCase()) {
+                        document.getElementById(feedbackId).textContent = "Correcto!";
+                    } else {
+                        document.getElementById(feedbackId).textContent = "Incorrecto. La respuesta correcta es: " + correctAnswers[questionId];
+                    }
+                } else {  // Si es una respuesta abierta
+                    document.getElementById(feedbackId).textContent = "Gracias por tu respuesta.";
+                }
+            }
+        }
+    </script>
+</body>
+</html>
